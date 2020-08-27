@@ -1,0 +1,44 @@
+
+.signup-form {
+  text-align: center;
+  margin-top: 50px;
+  border: 4px solid #d8d8f5;
+  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 25px;
+}
+
+.signup-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.signup-form input {
+  height: 20px;
+  width: 200px;
+}
+
+.welcome {
+  font-size: 24px;
+}
+
+
+.signup {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  background-color: lavender;
+  border: none;
+  width: 35%;
+  height: 35px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.signup:hover {
+  background-color: #d8d8f5;
+}

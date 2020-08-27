@@ -1,32 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
-
-/* body {
-  margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
 .title {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Indie Flower", cursive;
   text-align: center;
   font-size: 60px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.3em;
 }
 
 .lavendar-block {
   background-color: lavender;
-  height: 65px
+  height: 60px;
 }
 
 .under-title {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Indie Flower", cursive;
   text-align: center;
   font-size: 30px;
+}
+
+.sign-up {
+  text-align: center;
+  width: 16%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  background-color: lavender;
+  font-size: 24px;
+  display: block;
+  border: none;
+}
+
+.sign-up:hover {
+  background-color: #d8d8f5;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.log-in {
+  text-align: center;
+  width: 16%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  border: 4px solid lavender;
+  font-size: 24px;
+  display: block;
+  background-color: white;
+}
+
+.log-in:hover {
+  border: 4px solid #d8d8f5;
 }
