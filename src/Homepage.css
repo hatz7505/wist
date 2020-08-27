@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+/* body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.lavendar-block {
+  background-color: lavender;
+  height: 65px
+}
+
+.under-title {
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-size: 30px;
+}
