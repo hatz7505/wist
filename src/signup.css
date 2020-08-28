@@ -42,3 +42,15 @@
 .signup:hover {
   background-color: #d8d8f5;
 }
+
+.login-from-signup {
+  margin-top: 20px;
+  border: none;
+  background-color: white;
+  color: #9191cf;
+  font-size: 16px;
+}
+
+.login-from-signup:hover {
+  font-weight: bold;
+}
