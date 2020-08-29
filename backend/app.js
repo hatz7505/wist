@@ -9,8 +9,10 @@ const { SECRET_KEY } = require("./config");
 const User = require("./models/user");
 const { authenticate } = require("./helpers/auth");
 const userRoutes = require("./routes/users");
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.use(authenticate);
 app.use(express.json());

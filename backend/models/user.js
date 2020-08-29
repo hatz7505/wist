@@ -6,8 +6,8 @@ class User {
   static async create({
     username,
     password,
-    first_name,
-    last_name,
+    firstName,
+    lastName,
     email
   }) {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -18,8 +18,8 @@ class User {
       [
         username,
         hashedPassword,
-        first_name,
-        last_name,
+        firstName,
+        lastName,
         email
       ]
     );
