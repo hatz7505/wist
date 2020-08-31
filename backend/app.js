@@ -33,7 +33,7 @@ app.post("/login", async function (req, res, next) {
       }
     }
     // throw error if login credentials are not valid
-    throw new ExpressError("Invalid user/password", 400);
+    throw new ExpressError("Invalid username/password", 400);
   } catch (err) {
     // next the error to error handling middleware
     next(err);

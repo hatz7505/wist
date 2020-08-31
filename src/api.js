@@ -5,7 +5,6 @@ const BASE_URL = process.env.BASE_URL || "http://localhost:8080";
 
 class WistApi {
   static async request(endpoint, params = {}, verb = "get") {
-
     // FIXME: see above for note about this
     const _token = localStorage.getItem(TOKEN_STORAGE_ID);
 
@@ -27,6 +26,11 @@ class WistApi {
 
   static async signup(data) {
     let res = await this.request(`users`, data, "post");
+    return res.token;
+  }
+
+  static async login(data) {
+    let res = await this.request(`login`, data, "post");
     return res.token;
   }
 }

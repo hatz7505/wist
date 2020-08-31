@@ -53,3 +53,7 @@
 .login:hover {
   background-color: #d8d8f5;
 }
+
+.error {
+  color: red;
+}
