@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import "./signup.css";
 import Login from "./Login";
 import WistApi from "./api";
+import { useHistory } from "react-router-dom";
 
 function Signup() {
+  const history = useHistory();
   const [login, setLogin] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
 
@@ -31,9 +33,15 @@ function Signup() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    for (let field in formData) {
+      if (!formData[field].length) {
+        setFormErrors(["All fields are required"]);
+        return;
+      }
+    }
     let result = await signup(formData);
     if (result.success) {
-      console.log(result);
+      history.push("/dashboard");
     } else {
       setFormErrors(result.errors);
     }
@@ -41,6 +49,26 @@ function Signup() {
 
   function goToLogin() {
     setLogin(true);
+  }
+
+  function showErrors(arr) {
+    let errors = arr.map((error) => {
+      error =
+        error === 'duplicate key value violates unique constraint "users_pkey"'
+          ? "An account with that username already exists"
+          : error;
+      error =
+        error ===
+        'duplicate key value violates unique constraint "users_email_key"'
+          ? "An account with that email already exists"
+          : error;
+      return (
+        <p className="error" key={error}>
+          {error}
+        </p>
+      );
+    });
+    return errors;
   }
 
   return (
@@ -96,6 +124,7 @@ function Signup() {
             <button className="login-from-signup" onClick={() => goToLogin()}>
               log in
             </button>
+            {formErrors.length ? showErrors(formErrors) : null}
           </div>
         </div>
       ) : (

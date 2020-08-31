@@ -54,3 +54,7 @@
 .login-from-signup:hover {
   font-weight: bold;
 }
+
+.error {
+  color: red;
+}
