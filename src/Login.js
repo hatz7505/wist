@@ -3,6 +3,7 @@ import "./login.css";
 import Signup from "./Signup";
 import WistApi from "./api";
 import { useHistory } from "react-router-dom";
+import { decode } from "jsonwebtoken";
 
 function Login() {
   const history = useHistory();
@@ -15,7 +16,9 @@ function Login() {
 
   async function login(signupData) {
     try {
-      await WistApi.login(signupData);
+      let result = await WistApi.login(signupData);
+      let { username } = decode(result);
+      localStorage.setItem("username", username)
       return { success: true };
     } catch (errors) {
       console.error("signup failed", errors);
@@ -64,7 +67,7 @@ function Login() {
             ></input>
             <label>password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               value={formData.password}

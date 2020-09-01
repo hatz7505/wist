@@ -18,7 +18,7 @@ function Signup() {
 
   async function signup(signupData) {
     try {
-      await WistApi.signup(signupData);
+      await WistApi.signup(signupData)
       return { success: true };
     } catch (errors) {
       console.error("signup failed", errors);
@@ -111,7 +111,7 @@ function Signup() {
             ></input>
             <label>password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               value={formData.password}
