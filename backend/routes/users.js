@@ -10,11 +10,9 @@ const router = new express.Router();
 router.post("/", async function (req, res, next) {
   try {
     const result = await User.create(req.body);
-    result.token = jwt.sign(
-      { username: result.username },
-      SECRET_KEY
-    );
-    return res.json({ user: result });
+    let username = result.username;
+    let token = jwt.sign({ username }, SECRET_KEY);
+    return res.json({ token });
   } catch (err) {
     next(err);
   }
