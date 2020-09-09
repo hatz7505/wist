@@ -38,6 +38,11 @@ class WistApi {
     let res = await this.request(`users/${username}`);
     return res.user;
   }
+
+  static async getItemData(link) {
+    let res = await axios.get(link);
+    return res;
+  }
 }
 
 export default WistApi;

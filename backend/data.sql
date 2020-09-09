@@ -5,3 +5,14 @@ CREATE TABLE users (
   last_name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE
 );
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  picture TEXT NOT NULL,
+  price FLOAT(2) NOT NULL,
+  username TEXT NOT NULL REFERENCES users ON DELETE CASCADE,
+  category TEXT NOT NULL,
+  link TEXT NOT NULL,
+  date_posted TIMESTAMP DEFAULT current_timestamp
+);
