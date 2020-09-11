@@ -12,12 +12,4 @@ function authenticate(req, res, next) {
   }
 }
 
-function ensureLoggedIn(req, res, next) {
-  if (!req.user) {
-    return next({ status: 401, message: "Unauthorized" });
-  } else {
-    return next();
-  }
-}
-
-module.exports = { authenticate, ensureLoggedIn };
+module.exports = { authenticate };

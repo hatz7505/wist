@@ -9,10 +9,12 @@ const { SECRET_KEY } = require("./config");
 const User = require("./models/user");
 const { authenticate } = require("./helpers/auth");
 const userRoutes = require("./routes/users");
+const itemRoutes = require("./routes/items")
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
+
 
 app.use(authenticate);
 app.use(express.json());
@@ -21,6 +23,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 app.use("/users", userRoutes);
+app.use("/items", itemRoutes);
 
 app.post("/login", async function (req, res, next) {
   try {

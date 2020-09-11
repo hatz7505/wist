@@ -43,6 +43,11 @@ class WistApi {
     let res = await axios.get(link);
     return res;
   }
+
+  static async addItem(data) {
+    let res = await this.request(`items`, data, "post");
+    return res.item;
+  }
 }
 
 export default WistApi;

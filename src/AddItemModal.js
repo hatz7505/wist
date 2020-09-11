@@ -6,8 +6,9 @@ function AddItemModal({ show, link, handleClose }) {
   const [formData, setFormData] = useState({
     name: "",
     picture: "",
+    link: "",
     price: "",
-    category: "",
+    category: ""
   });
   const [formErrors, setFormErrors] = useState([]);
   const showHideClassName = show ? "modal show-modal" : "modal hide-modal";
@@ -42,6 +43,8 @@ function AddItemModal({ show, link, handleClose }) {
         return;
       }
     }
+    let username = localStorage.getItem("username");
+    await WistApi.addItem({...formData, username});
   }
 
   function closeModal() {
@@ -59,6 +62,14 @@ function AddItemModal({ show, link, handleClose }) {
             id="name"
             name="name"
             value={formData.name}
+            onChange={handleChange}
+          ></input>
+          <label>link to item</label>
+          <input
+            type="text"
+            id="link"
+            name="link"
+            value={formData.link}
             onChange={handleChange}
           ></input>
           <label>picture link</label>

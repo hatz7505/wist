@@ -4,6 +4,7 @@ import Signup from "./Signup";
 import WistApi from "./api";
 import { useHistory } from "react-router-dom";
 import { decode } from "jsonwebtoken";
+import { TOKEN_STORAGE_ID } from "./App";
 
 function Login() {
   const history = useHistory();
@@ -18,7 +19,8 @@ function Login() {
     try {
       let result = await WistApi.login(signupData);
       let { username } = decode(result);
-      localStorage.setItem("username", username)
+      localStorage.setItem("username", username);
+      localStorage.setItem(TOKEN_STORAGE_ID, result);
       return { success: true };
     } catch (errors) {
       console.error("signup failed", errors);
