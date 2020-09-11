@@ -25,6 +25,10 @@ function Dashboard() {
     setFormData((l) => ({ ...l, [name]: value }));
   }
 
+  function handleClose() {
+    setShowModal(false);
+  }
+
   async function handleSubmit(evt) {
     evt.preventDefault();
     for (let field in formData) {
@@ -41,7 +45,7 @@ function Dashboard() {
       <Header />
       <div className="dashboard-background">
         <p>Hi {user.first_name}!</p>
-        <AddItemModal show={showModal} link={formData.link}/>
+        <AddItemModal show={showModal} link={formData.link} handleClose={handleClose}/>
         <form onSubmit={handleSubmit}>
           <h3>add a new item</h3>
           <label>item link</label>
