@@ -16,9 +16,16 @@ function Dashboard() {
       let userData = await WistApi.getCurrentUser(username);
       setUser(userData);
     }
+    async function getUserItems() {
+      let username = localStorage.getItem("username");
+      let result = await WistApi.getUsersItems(username);
+      console.log({result});
+    }
 
     getCurrentUser();
+    getUserItems();
   }, []);
+
 
   function handleChange(evt) {
     const { name, value } = evt.target;

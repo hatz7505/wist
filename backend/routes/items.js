@@ -16,6 +16,16 @@ router.post("/", async function (req, res, next) {
   }
 });
 
+router.get("/:username", async function (req, res, next) {
+  try {
+    let username = req.params.username;
+    let items = await Item.getUsersItems(username);
+    return res.json({ items });
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 
 module.exports = router;

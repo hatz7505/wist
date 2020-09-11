@@ -13,5 +13,12 @@ class Item {
     return result.rows[0];
   }
 
+  static async getUsersItems(username) {
+    let result = await db.query(
+      `SELECT * FROM items WHERE username=$1`,
+      [username]
+    );
+    return result.rows;
+  }
 }
 module.exports = Item;

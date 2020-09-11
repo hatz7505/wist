@@ -48,6 +48,11 @@ class WistApi {
     let res = await this.request(`items`, data, "post");
     return res.item;
   }
+
+  static async getUsersItems(username) {
+    let res = await this.request(`items/${username}`);
+    return res.items;
+  }
 }
 
 export default WistApi;
