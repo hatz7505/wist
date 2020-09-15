@@ -37,6 +37,7 @@ function AddItemModal({ show, link, handleClose }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setFormErrors([]);
     for (let field in formData) {
       if (!formData[field].length) {
         setFormErrors(["All fields are required"]);
@@ -44,7 +45,12 @@ function AddItemModal({ show, link, handleClose }) {
       }
     }
     let username = localStorage.getItem("username");
-    await WistApi.addItem({...formData, username});
+    try {
+      await WistApi.addItem({...formData, username});
+      closeModal();
+    } catch(err) {
+      setFormErrors([err]);
+    }
   }
 
   function closeModal() {
