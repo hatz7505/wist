@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Lora', serif;
+  font-family: 'Lora', serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -13,5 +13,5 @@ button {
 
 code {
   font-family: 'Lora', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace !important;
 }

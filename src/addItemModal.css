@@ -1,9 +1,9 @@
 .show-modal {
-  display: block;
+  display: block !important;
 }
 
 .hide-modal {
-  display: none;
+  display: none !important;
 }
 
 .modal {

@@ -1,0 +1,35 @@
+.wist-item-card {
+  margin-top: 20px;
+  -webkit-box-shadow: -9px 9px 22px -10px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -9px 9px 22px -10px rgba(0, 0, 0, 1);
+  box-shadow: -9px 9px 22px -10px rgba(0, 0, 0, 1);
+  height: 450px;
+  width: 90%;
+  margin: 30px;
+}
+
+.image {
+  height: 330px;
+}
+
+.wist-item-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.wist-item-subtitle {
+  text-align: center;
+}
+
+.wist-item-link {
+  font-size: 18px;
+  text-align: center;
+  color: #8787d6;
+  display: inline-block;
+}
+
+.wist-item-link:hover {
+  text-decoration: none;
+  color: #4f4fa0;
+}
