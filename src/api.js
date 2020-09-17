@@ -53,6 +53,16 @@ class WistApi {
     let res = await this.request(`items/${username}`);
     return res.items;
   }
+
+  static async getProsForItem(itemId) {
+    let res = await this.request(`items/pros/${itemId}`);
+    return res.pros;
+  }
+
+  static async getConsForItem(itemId) {
+    let res = await this.request(`items/cons/${itemId}`);
+    return res.cons;
+  }
 }
 
 export default WistApi;

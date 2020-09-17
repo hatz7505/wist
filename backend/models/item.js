@@ -14,9 +14,24 @@ class Item {
   }
 
   static async getUsersItems(username) {
+    let result = await db.query(`SELECT * FROM items WHERE username=$1`, [
+      username,
+    ]);
+    return result.rows;
+  }
+
+  static async getPros(itemId) {
     let result = await db.query(
-      `SELECT * FROM items WHERE username=$1`,
-      [username]
+      `SELECT * FROM procons WHERE item_id=$1 AND procon='pro'`,
+      [itemId]
+    );
+    return result.rows;
+  }
+
+  static async getCons(itemId) {
+    let result = await db.query(
+      `SELECT * FROM procons WHERE item_id=$1 AND procon='con'`,
+      [itemId]
     );
     return result.rows;
   }

@@ -16,3 +16,10 @@ CREATE TABLE items (
   link TEXT NOT NULL,
   date_posted TIMESTAMP DEFAULT current_timestamp
 );
+
+CREATE TABLE procons (
+  id SERIAL PRIMARY KEY,
+  item_id INTEGER NOT NULL REFERENCES items ON DELETE CASCADE,
+  comment TEXT NOT NULL,
+  procon TEXT NOT NULL
+);
