@@ -58,7 +58,7 @@ function Login() {
       {!signup ? (
         <div className="login-form">
           <div className="welcome-back">welcome back :)</div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
             <label>username</label>
             <input
               type="text"

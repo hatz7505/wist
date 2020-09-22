@@ -63,6 +63,11 @@ class WistApi {
     let res = await this.request(`items/cons/${itemId}`);
     return res.cons;
   }
+
+  static async addProCon(data) {
+    let res = await this.request(`items/procons/`, data, "post");
+    return res;
+  }
 }
 
 export default WistApi;

@@ -8,7 +8,6 @@ const router = new express.Router();
 
 router.post("/", async function (req, res, next) {
   try {
-    console.log(req.body)
     const result = await Item.create(req.body);
     return res.json({ result });
   } catch (err) {
@@ -41,6 +40,15 @@ router.get("/cons/:itemId", async function (req, res, next) {
     let itemId = req.params.itemId;
     let cons = await Item.getCons(itemId);
     return res.json({ cons });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/procons", async function (req, res, next) {
+  try {
+    const result = await Item.addProCon(req.body);
+    return res.json({ result });
   } catch (err) {
     next(err);
   }

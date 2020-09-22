@@ -35,5 +35,15 @@ class Item {
     );
     return result.rows;
   }
+
+  static async addProCon({ itemId, comment, procon }) {
+    let result = await db.query(
+      `INSERT INTO procons (item_id, comment, procon)
+        VALUES ($1,$2, $3)
+        RETURNING item_id, comment, procon`,
+      [itemId, comment, procon]
+    );
+    return result.rows;
+  }
 }
 module.exports = Item;

@@ -3,10 +3,13 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import "./wistItem.css";
 import WistApi from "./api";
 import { Row, Col } from "reactstrap";
+import AddProConModal from "./AddProConModal";
 
 function WistItem({ item }) {
   const [pros, setPros] = useState([]);
   const [cons, setCons] = useState([]);
+  let [showModal, setShowModal] = useState(false);
+
   useEffect(
     function () {
       async function getProCons(itemId) {
@@ -23,8 +26,18 @@ function WistItem({ item }) {
     },
     [item.id]
   );
+
+  function addProcon() {
+    setShowModal(true);
+  }
+
+  function handleClose() {
+    setShowModal(false);
+  }
+  
   return (
     <div className="wist-item-container">
+      <AddProConModal show={showModal} itemId={item.id} handleClose={handleClose}/>
       <Card className="wist-item-card">
         <CardImg className="image" src={item.picture} alt="wist item" />
         <CardBody>
@@ -60,6 +73,9 @@ function WistItem({ item }) {
                 ? cons.map((con) => <li key={con.id}>{con.comment}</li>)
                 : null}
             </ul>
+          </Col>
+          <Col sm="12">
+              <h4 className="add-procon" onClick={() => addProcon()}>add pro/con</h4>
           </Col>
         </Row>
       </div>
