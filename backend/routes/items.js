@@ -54,6 +54,14 @@ router.post("/procons", async function (req, res, next) {
   }
 });
 
-
+router.delete("/:itemId", async function (req, res, next) {
+  try {
+    let itemId = req.params.itemId;
+    let result = await Item.delete(itemId);
+    return res.json({ result });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

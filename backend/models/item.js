@@ -45,5 +45,13 @@ class Item {
     );
     return result.rows;
   }
+
+  static async delete(itemId) {
+    await db.query(
+      `DELETE FROM items WHERE id=$1`,
+      [itemId]
+    );
+    return `item ${itemId} successfully deleted`;
+  }
 }
 module.exports = Item;
